@@ -1,0 +1,91 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>376</x><y>401</y><w>168</w><h>152</h></coordinates><panel_attributes>Materia
+--
+- id: int
+- titulo: String
+- Clases (array de Clase)
+- info: String (una especie de bio del curso)
+- duracion: int (en horas)
+- cantidadClases (un contador que pueda contar cuantas clases tiene)
+- finalObligatorio: boolean
+
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>64</x><y>145</y><w>256</w><h>232</h></coordinates><panel_attributes>Estudiante
+--
+- usename: String
+- nombre: String
+- apellido: String
+- dni: String
+- edad: int
+- esBecado: boolean
+- carreras (primero se inscribe en una carrera, recién ahí se va inscribiendo en cada curso)
+- cursos
+
+--
+
++ inscripcionCarrera
++ inscripcionCurso
++ bajaCarrera
++ bajaCurso
++ certAlumnoRegular</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>417</y><w>168</w><h>152</h></coordinates><panel_attributes>Carrera
+--
+- id: int
+- titulo: String
+- Clases (array de Clase)
+- info: String (una especie de bio del curso)
+- duracion: int (en horas)
+- cantidadClases (un contador que pueda contar cuantas clases tiene)
+
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>465</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Materias
+</panel_attributes><additional_attributes>80;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>185</y><w>168</w><h>152</h></coordinates><panel_attributes>Clase
+--
+- id: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>329</y><w>48</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Clases
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>473</y><w>176</w><h>152</h></coordinates><panel_attributes>Evaluacion
+--
+- tipoEvaluacion (enum, parcial, final, recuperatorio, libre)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>465</y><w>120</w><h>112</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Evaluaciones
+</panel_attributes><additional_attributes>130;120;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>560</x><y>49</y><w>384</w><h>408</h></coordinates><panel_attributes>ACCIONES POR ROL
+
+ESTUDIANTE
+1. INSCRIBIRSE A MATERIAS (SE POSTULA, DESPUÉS EL ADMIN
+CONFIRMA VACANTE, CADA CLASE TIENE CUPO DE 100 PERSONAS)
+2. VER LAS CLASES, NO PUEDE EDITARLAS
+3. REALIZAR LAS EVALUACIONES
+
+PROFESOR
+	LOS 2
+		CORREGIR PARCIALES Y RECUPERATORIOS
+	SOLO TITULAR
+		CORREGIR FINAL Y LIBRE
+		CAMBIAR CONTENIDO DE LAS CLASES Y 
+                EVALUACIONES
+
+ADMIN
+	CREAR, EDITAR Y BORRAR CARRERAS, MATERIAS, CLASES, ESTUDIANTES, ETC.
+
+
+CONDICIONES
+HAY MATERIAS CON FINAL OBLIGATORIO Y OTRAS NO
+
+LAS QUE NO TIENEN FINAL OBLIGATORIO
+CON 7 O MÁS EN AMBOS PARCIALES, PROMOCIONÁS, SE EXPIDE UN CERTIFICADO.
+CON 4 O MÁS EN AMBOS PARCIALES, APROBÁS (VAS A FINAL)
+CASOS CONTRARIOS, RECURSAS
+
+LOS RECUPERATORIOS ACTUALIZAN LA NOTA DEL PARCIAL
+
+EL PROFE PUEDE SETEAR INTENTOS, Y TIEMPO PARA HACER EL EXÁMEN</panel_attributes><additional_attributes></additional_attributes></element></diagram>
